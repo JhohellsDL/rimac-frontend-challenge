@@ -5,6 +5,4 @@ export interface User {
     phone: string;
 }
 
-export interface UserResponse {
-    user: User;
-}
+export type UserResponse = User;

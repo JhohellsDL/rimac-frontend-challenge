@@ -5,7 +5,7 @@ import { createUseContext } from './createUseContext';
 
 export interface FlowState {
   insuredType: 'para-mi' | 'para-alguien-mas' | null;
-  insuredBirthDate: string | null;       // si es "para alguien más"
+  insuredBirthDate: string | null; 
   selectedPlan: Plan | null;
 }
 

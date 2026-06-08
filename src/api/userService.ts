@@ -1,8 +1,8 @@
 import { apiClient } from './client';
-import type { UserResponse } from '../models/User';
+import type { User } from '../models/User';
 
 export const userService = {
-  getUser(signal?: AbortSignal): Promise<UserResponse> {
-    return apiClient.get<UserResponse>('/user.json', signal);
+  getUser(signal?: AbortSignal): Promise<User> {
+    return apiClient.get<User>('/user.json', signal);
   }
 };
