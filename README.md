@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# RIMAC Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cotizador de seguros de salud desarrollado con React 19, TypeScript y Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🛠 Stack técnico
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Tecnología | Versión |
+|---|---|
+| React | 19 |
+| TypeScript | 6 |
+| Vite | 8 |
+| Tailwind CSS | 4 |
+| React Router DOM | 7 |
+| clsx | 2 |
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Levantar el proyecto
 
-## Expanding the ESLint configuration
+### Requisitos previos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Node.js** `>= 18`
+- **npm** `>= 9` (viene incluido con Node.js)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Clonar el repositorio
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/JhohellsDL/rimac-frontend-challenge.git
+cd rimac-frontend-challenge
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Iniciar el servidor de desarrollo
+
+```bash
+npm run dev
+```
+
+El proyecto estará disponible en **[http://localhost:5173](http://localhost:5173)**
+
+---
+
+## 📋 Scripts disponibles
+
+| Comando | Descripción |
+|---|---|
+| `npm run dev` | Inicia el servidor de desarrollo con HMR |
+| `npm run build` | Compila TypeScript y genera el bundle de producción en `/dist` |
+| `npm run preview` | Sirve el build de producción localmente |
+| `npm run lint` | Ejecuta ESLint sobre todo el proyecto |
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/
+├── api/           # Servicios de llamadas HTTP
+├── assets/        # Imágenes, SVGs e íconos
+├── components/
+│   ├── common/    # Componentes genéricos (Button, etc.)
+│   ├── layout/    # Estructura de página (AppHeader, StepBar)
+│   └── ui/        # Componentes de interfaz (PlanCard, InsuredOptionCard, etc.)
+├── constants/     # Constantes globales
+├── context/       # Contextos de React (AuthContext, FlowContext)
+├── hooks/         # Custom hooks
+├── models/        # Interfaces y tipos TypeScript
+├── utils/         # Funciones utilitarias
+└── views/
+    ├── Login/     # Vista de ingreso de datos
+    ├── Plans/     # Vista de selección de plan
+    └── Summary/   # Vista de resumen del seguro
+```
+
+---
+
+## 🗺 Flujo de la aplicación
+
+```
+/ (Login)  →  /planes (Selección de plan)  →  /resumen (Resumen)
+```
+
+1. **Login** — El usuario ingresa su documento y fecha de nacimiento
+2. **Planes** — Selecciona si cotiza para sí mismo o alguien más, luego elige un plan
+3. **Resumen** — Muestra el resumen del seguro seleccionado
