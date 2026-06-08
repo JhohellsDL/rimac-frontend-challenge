@@ -1,4 +1,6 @@
-export const IcProtectionLight = (props) => (
+import React from 'react';
+
+export const IcProtectionLight = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width={48}
     height={48}

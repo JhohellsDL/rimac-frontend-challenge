@@ -1,4 +1,6 @@
-const IcHomeLight = (props) => (
+import React from 'react';
+
+const IcHomeLight = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         width={56}
         height={56}

@@ -1,5 +1,6 @@
+import React from 'react';
 
-const IcAddUserLight = (props) => (
+const IcAddUserLight = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         width={48}
         height={48}
